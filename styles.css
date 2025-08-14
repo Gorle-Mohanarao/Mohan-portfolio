@@ -1,0 +1,365 @@
+/* Custom CSS for smooth transitions and Inter font */
+body {
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #ffffff;
+  color: #111111; /* Use a strong dark color for text in light mode */
+}
+/* Apply Merriweather to specific headings for design impact */
+h1,
+h2.merriweather-font {
+  font-family: "Merriweather", serif;
+}
+
+/* Text colors for both modes */
+.text-gray-700 {
+  color: #4a5568 !important; /* Force gray-700 in light mode */
+}
+.text-gray-800 {
+  color: #2d3748 !important; /* Force gray-800 in light mode */
+}
+.text-gray-900 {
+  color: #1a202c !important; /* Force gray-900 in light mode */
+}
+html.dark .text-gray-700 {
+  color: #cbd5e0 !important; /* Force light gray in dark mode */
+}
+html.dark .text-gray-800,
+html.dark .text-gray-900 {
+  color: #e0e0e0 !important; /* Force light color in dark mode */
+}
+
+/* Dark mode styles - applied when 'dark' class is on <html> */
+html.dark body {
+  /* Target body when html has 'dark' class */
+  background-color: #1a1a1a; /* Dark background inspired by the image */
+  color: #e0e0e0;
+}
+/* Ensure elements inside sections adapt to dark mode */
+html.dark .bg-white {
+  /* Override bg-white for dark mode */
+  background-color: #2a2a2a;
+  /* color:#000; */
+}
+
+/* Border colors based on theme */
+.border-gray-200 {
+  border-color: #e2e8f0; /* Tailwind gray-200 for light mode */
+}
+html.dark .border-gray-200 {
+  /* Override border-gray-200 for dark mode */
+  border-color: #3a3a3a; /* Darker border for dark mode */
+}
+
+/* Hover effects */
+.hover\:bg-gray-100:hover {
+  background-color: #f7fafc; /* Tailwind gray-100 */
+}
+html.dark .hover\:bg-gray-100:hover {
+  /* Override hover-bg-gray-100 for dark mode */
+  background-color: #3a3a3a;
+}
+
+/* Link colors based on theme */
+a {
+  color: #2563eb; /* Blue for links in light mode (Tailwind blue-600) */
+}
+a:hover {
+  color: #1d4ed8; /* Darker blue on hover (Tailwind blue-700) */
+}
+html.dark a {
+  /* Override link colors for dark mode */
+  color: #87ceeb; /* Light blue for links in dark mode */
+}
+html.dark a:hover {
+  /* Override link hover colors for dark mode */
+  color: #6495ed; /* Darker blue on hover */
+}
+
+/* Theme toggle button styling */
+.light-dark-toggle {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+.light-dark-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+html.dark .light-dark-toggle:hover {
+  /* Override hover for dark mode */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient for contact button */
+.gradient-button {
+  background-image: linear-gradient(
+    to right,
+    #ee82ee,
+    #da70d6
+  ); /* Violet to Orchid */
+}
+.gradient-button:hover {
+  background-image: linear-gradient(
+    to right,
+    #dda0dd,
+    #ba55d3
+  ); /* Lighter shades on hover */
+}
+
+/* Custom card background for both modes */
+.card-bg {
+  background-color: #ffffff; /* Default light background for cards */
+  border-color: #e0e0e0; /* Default light border for cards */
+}
+html.dark .card-bg {
+  /* Override card background for dark mode */
+  background-color: #3a2e5a; /* A slightly lighter purple than main background for dark mode */
+  border-color: #5a4b7d; /* Dark border for dark mode */
+}
+
+/* Ensure header background also transitions */
+header#navbar {
+  background-color: #ffffff; /* Default light background for header */
+  transition: background-color 0.3s ease;
+}
+html.dark header#navbar {
+  /* Apply dark background to header when in dark mode */
+  background-color: #1a1a1a;
+}
+
+/* Adjust text color in header for both modes */
+header#navbar a:hover {
+  color: #1d4ed8; 
+}
+
+html.dark header#navbar a {
+  /* Override header link colors for dark mode */
+  color: rgb(147 51 234); /* Light text for dark mode header links */
+}
+html.dark header#navbar a:hover {
+  /* Override header link hover colors for dark mode */
+  color: #1d4ed8;
+}
+
+header#navbar .text-gray-800 {
+  /* For brand name in header */
+  color: #2d3748; /* Default text-gray-800 for light mode */
+}
+html.dark header#navbar .text-gray-800 {
+  /* Override brand name color for dark mode */
+  color: #e0e0e0; /* Light text for dark mode header brand */
+}
+
+header#navbar .text-gray-600 {
+  /* For mobile menu button */
+  color: #718096; /* Default text-gray-600 for light mode */
+}
+html.dark header#navbar .text-gray-600 {
+  /* Override mobile menu button color for dark mode */
+  color: #b0b0b0; /* Light gray for dark mode mobile button */
+}
+
+/* Theme toggle icon color */
+#theme-toggle i {
+  color: #1a1a1a; /* Default black for light mode */
+}
+html.dark #theme-toggle i {
+  /* Override icon color for dark mode */
+  color: #e0e0e0; /* Light color for dark mode */
+}
+
+/* Fix for headings in light mode */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1a202c; /* Default dark color for headings in light mode */
+}
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #e0e0e0; /* Light color for dark mode */
+}
+
+/* Specific styles for icons in the "Tools I use" section */
+.tool-icon {
+  font-size: 2.5rem; /* Larger icon size */
+  color: #8a2be2; /* BlueViolet for light mode (closer to original blue) */
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.tool-icon:hover {
+  transform: scale(1.1);
+  color: #6a0dad; /* Darker BlueViolet on hover */
+}
+html.dark .tool-icon {
+  /* Override tool icon colors for dark mode */
+  color: #da70d6; /* Orchid color for dark mode */
+}
+html.dark .tool-icon:hover {
+  /* Override tool icon hover colors for dark mode */
+  color: #ee82ee; /* Lighter violet on hover in dark mode */
+}
+
+/* Adjust placeholder image for dark mode */
+.profile-img-placeholder {
+  filter: none; /* No filter by default for light mode */
+}
+html.dark .profile-img-placeholder {
+  /* Apply filter for dark mode */
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Creative palette & micro-animations */
+:root{
+  --accent-1: #7c3aed; /* violet */
+  --accent-2: #06b6d4; /* cyan */
+  --accent-3: #fb7185; /* pink */
+}
+
+/* Hero subtle gradient and glass overlay */
+#hero{
+  background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));
+  border-radius: 14px;
+  padding: 2.5rem;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+#hero:hover{ box-shadow: 0 20px 40px rgba(15,23,42,0.06); transform: translateY(-2px); }
+
+/* Floating profile */
+.profile-img-placeholder{
+  animation: floaty 6s ease-in-out infinite;
+  transition: transform 0.35s ease;
+}
+@keyframes floaty{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
+  100%{ transform: translateY(0); }
+}
+
+/* Card hover behavior */
+.card-bg{
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease;
+}
+.card-bg:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 18px 40px rgba(15,23,42,0.08); }
+
+/* Accent link hover */
+a:hover{ text-decoration: none; }
+
+/* Project search input */
+.project-search{
+  width: 100%; max-width: 520px; margin: 0 auto 1.25rem; display:block;
+  padding: 0.6rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(15,23,42,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8));
+  box-shadow: 0 6px 18px rgba(2,6,23,0.03); outline: none; transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.project-search:focus{ box-shadow: 0 10px 30px rgba(99,102,241,0.12); transform: translateY(-2px); }
+
+/* Ripple effect for clickable elements */
+.ripple{ position: relative; overflow: hidden; }
+.ripple-effect{ position: absolute; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%,-50%) scale(0); pointer-events: none; opacity: 0.8; background: rgba(255,255,255,0.7); animation: ripple 600ms ease-out; }
+@keyframes ripple{ to{ transform: translate(-50%,-50%) scale(20); opacity: 0; } }
+
+/* Dark mode ripple color tweak */
+html.dark .ripple-effect{ background: rgba(0,0,0,0.25); }
+
+/* ==========================
+   Micro-animations & polish
+   ========================== */
+
+/* Header visual lift when scrolled */
+header#navbar.shadow-lg {
+  background: linear-gradient(90deg, rgba(124,58,237,0.06), rgba(6,182,212,0.03));
+  backdrop-filter: blur(6px);
+}
+
+/* Nav link animated underline */
+header#navbar nav a {
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+header#navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+  opacity: 0.95;
+}
+header#navbar nav a:hover::after,
+header#navbar nav a:focus::after {
+  transform: scaleX(1);
+}
+
+/* Floating profile — stronger hover lift */
+.profile-img-placeholder {
+  transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s ease;
+}
+.profile-img-placeholder:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(15,23,42,0.12);
+}
+
+/* Subtle card sheen on hover */
+.card-bg { position: relative; overflow: hidden; }
+.card-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(124,58,237,0.03), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+.card-bg:hover::before { opacity: 1; transform: scale(1.02); }
+
+/* Mobile menu open/close animations (JS will toggle these classes) */
+#mobile-menu { transition: opacity 0.22s ease, transform 0.22s ease; transform-origin: top center; }
+#mobile-menu.menu-open { display: block; opacity: 1; transform: translateY(0); }
+#mobile-menu.menu-closing { opacity: 0; transform: translateY(-8px); }
+
+/* Focus visible for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(124,58,237,0.22);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Small helper for subtle section separators */
+.section-divider { height: 1px; background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0)); margin: 2.25rem 0; }

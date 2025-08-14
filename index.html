@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohan - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  <!-- External stylesheet with the page's custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts - Merriweather (for main heading) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased leading-normal">
+    <!-- Header & Navigation -->
+    <header
+      id="navbar"
+      class="shadow-md py-4 sticky top-0 z-50 transition-colors duration-300"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <a
+          href="#home"
+          class="text-2xl font-bold text-purple-500 hover:text-blue-600 transition-colors duration-300 rounded-lg p-2"
+          >Mohan</a
+        >
+        <nav class="hidden md:flex space-x-6">
+
+          <a
+            href="#skills"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Projects</a
+          >
+          <a
+            href="#internship"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Internship</a
+          >
+          <a
+            href="#education"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Education</a
+          >
+          <a
+            href="#certifications"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Certifications</a
+          >
+          <!-- <a
+            href="#achievements"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Achievements</a
+          > -->
+          <a
+            href="#contact"
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium rounded-lg p-2"
+            >Contact</a
+          >
+        </nav>
+        <div class="flex items-center space-x-2 md:space-x-4">
+          <!-- Social Links (Desktop) -->
+          <a href="https://www.linkedin.com/in/gmr7/" target="_blank" class="hidden md:inline-flex items-center justify-center text-blue-700 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 text-xl px-2" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://leetcode.com/u/mohan_7/" target="_blank" class="hidden md:inline-flex items-center justify-center text-orange-500 hover:text-orange-600 dark:text-yellow-400 dark:hover:text-yellow-200 text-xl px-2" title="LeetCode">
+            <i class="fa-solid fa-code"></i>
+          </a>
+          <a href="https://github.com/Gorle-Mohanarao" target="_blank" class="hidden md:inline-flex items-center justify-center text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white text-xl px-2" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:gorlemohanarao2002@gmail.com" class="hidden md:inline-flex items-center justify-center text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-200 text-xl px-2" title="Gmail">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <!-- Light/Dark Mode Toggle -->
+          <button
+            id="theme-toggle"
+            class="light-dark-toggle focus:outline-none flex items-center justify-center"
+          >
+            <i class="fas fa-sun text-lg"></i>
+            <!-- This will be updated by JS -->
+          </button>
+
+          <!-- Download Resume Button (Desktop) -->
+          <a
+            href="Mohan_Resume.pdf"
+            id="download-resume-btn"
+            download="Mohan_Resume.pdf"
+            class="ripple hidden md:inline-flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md"
+          >
+            <i class="fas fa-download mr-2"></i> Download Resume
+          </a>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-gray-600 focus:outline-none"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu (Hidden by default) -->
+      <nav id="mobile-menu" class="hidden md:hidden py-4 shadow-lg">
+        <div class="flex justify-center space-x-4 mb-4">
+          <a href="https://www.linkedin.com/in/gmr7/" target="_blank" class="text-blue-700 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 text-2xl" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://leetcode.com/u/mohan_7/" target="_blank" class="text-orange-500 hover:text-orange-600 dark:text-yellow-400 dark:hover:text-yellow-200 text-2xl" title="LeetCode">
+            <i class="fa-solid fa-code"></i>
+          </a>
+          <a href="https://github.com/Gorle-Mohanarao" target="_blank" class="text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white text-2xl" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:gorlemohanarao2002@gmail.com" class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-200 text-2xl" title="Gmail">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <ul class="flex flex-col items-center space-y-3">
+          <li>
+            <a
+              href="#skills"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#internship"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Internship</a
+            >
+          </li>
+          <li>
+            <a
+              href="#education"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Education</a
+            >
+          </li>
+          
+          
+          
+          <li>
+            <a
+              href="#certifications"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Certifications</a
+            >
+          </li>
+          <!-- <li>
+            <a
+              href="#achievements"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Achievements</a
+            >
+          </li> -->
+          <li>
+            <a
+              href="#contact"
+              class="block text-gray-800 hover:text-blue-600 py-2"
+              onclick="toggleMobileMenu()"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="Mohan_Resume.pdf"
+              id="download-resume-btn-mobile"
+              download="Mohan_Resume.pdf"
+              class="ripple inline-flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md"
+            >
+              <i class="fas fa-download mr-2"></i> Download Resume
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <!-- Hero Section (About Me & Profile Info) -->
+      <section
+        id="hero"
+        class="text-center py-16 lg:py-24 px-4 animate-on-scroll"
+      >
+        <p
+          class="text-lg md:text-xl font-medium text-purple-600 dark:text-purple-300 mb-4"
+        >
+          Introduction
+        </p>
+        <h2
+          class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-8 merriweather-font"
+        >
+          About me
+        </h2>
+
+        <div class="relative inline-block mb-10">
+          <img
+            src="./profilebw.jpeg"
+            alt="Mohan Rao Profile"
+            class="mx-auto rounded-full w-48 h-48 md:w-56 md:h-56 object-cover shadow-lg border-4 border-blue-400 dark:border-purple-600 profile-img-placeholder"
+          />
+          <!-- Circular "Full Stack Web Developer" label - Simplified version without complex text path -->
+          <div
+            class="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 bg-purple-800 text-white text-xs font-semibold rounded-full px-3 py-1.5 shadow-md hidden sm:block"
+          >
+            Full Stack Developer
+          </div>
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4 merriweather-font"
+        >
+          Hi! I'm Mohan
+        </h1>
+        <p
+          class="text-2xl md:text-3xl font-medium text-gray-800 dark:text-gray-200 mb-8 merriweather-font"
+        >
+          Full Stack Developer && DSA Enthusiast
+        </p>
+        <p
+          class="text-md md:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10"
+        >
+          Enthusiastic and detail-oriented software developer with a strong
+          foundation in Python, Java and web technologies like HTML, CSS,
+          JavaScript, React.js, and Node.js. Proficient in MySQL, MongoDB, REST
+          APIs, and software development concepts, including Data Structures,
+          Algorithms, OOP, and Software Engineering. Skilled in version control
+          with GitHub and development tools like VS Code. I am eager to apply my
+          technical knowledge and problem-solving skills to contribute to
+          innovative projects and continuous learning.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16"
+        >
+          <a
+            href="#contact"
+            class="gradient-button text-white py-3 px-8 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center"
+          >
+            Contact Me <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
+          <a
+            href="Mohan_Resume.pdf"
+            id="download-resume-btn-hero"
+            download="Mohan_Resume.pdf"
+            class="ripple bg-gray-700 text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+          >
+            My Resume <i class="fas fa-download ml-2 text-base"></i>
+          </a>
+        </div>
+
+        <!-- Mini Info Cards -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto"
+        >
+          <div
+            class="card-bg p-6 rounded-lg shadow-xl border-2 border-blue-400 dark:border-purple-700 animate-on-scroll"
+          >
+            <div class="text-3xl text-blue-600 dark:text-purple-400 mb-3">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Tech Stack
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Proficient in Python, Java, and JavaScript, with expertise in modern frameworks including React.js, Node.js, and Next.js.
+            </p>
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-xl border-2 border-blue-400 dark:border-purple-700 animate-on-scroll"
+            style="animation-delay: 0.1s"
+          >
+            <div class="text-3xl text-blue-600 dark:text-purple-400 mb-3">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Education
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              B.Tech in <b>Computer Science</b> with a strong foundation in software development principles and problem-solving.
+            </p>
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-xl border-2 border-blue-400 dark:border-purple-700 animate-on-scroll"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-3xl text-blue-600 dark:text-purple-400 mb-3">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Projects
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Developed 20+ dynamic and responsive projects, showcasing expertise in both front-end and back-end development.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tools I Use Section -->
+        <h3
+          class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8"
+        >
+          Tools I use
+        </h3>
+        <div class="flex justify-center flex-wrap gap-8 max-w-4xl mx-auto">
+          <!-- Visual Studio Code -->
+          <!-- <div class="text-center">
+            <i class="fas fa-code tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">VS Code</p>
+          </div> -->
+          <!-- HTML5 -->
+          <div class="text-center">
+            <i class="fab fa-html5 tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">HTML5</p>
+          </div>
+          <!-- CSS3 -->
+          <div class="text-center">
+            <i class="fab fa-css3-alt tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">CSS3</p>
+          </div>
+          <!-- JavaScript -->
+          <div class="text-center">
+            <i class="fab fa-js-square tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">
+              JavaScript
+            </p>
+          </div>
+          <!-- React.js -->
+          <div class="text-center">
+            <i class="fab fa-react tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">React</p>
+          </div>
+          <!-- Node.js -->
+          <div class="text-center">
+            <i class="fab fa-node-js tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">Node.js</p>
+          </div>
+          <!-- Python -->
+          <div class="text-center">
+            <i class="fab fa-python tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">Python</p>
+          </div>
+          <!-- Java - No direct Font Awesome icon, using generic code for now -->
+          <div class="text-center">
+            <i class="fas fa-coffee tool-icon"></i>
+            <!-- Coffee cup is common for Java -->
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">Java</p>
+          </div>
+          <!-- Git/GitHub -->
+          <div class="text-center">
+            <i class="fab fa-git-alt tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">Git</p>
+          </div>
+          <!-- MySQL -->
+          <div class="text-center">
+            <i class="fas fa-database tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">MySQL</p>
+          </div>
+          <!-- MongoDB - No direct Font Awesome icon, using generic database for now -->
+          <div class="text-center">
+            <i class="fas fa-leaf tool-icon"></i>
+            <!-- Leaf icon is sometimes associated with MongoDB -->
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">MongoDB</p>
+          </div>
+          <!-- Express.js (No direct FA icon, using generic code for now) -->
+          <div class="text-center">
+            <i class="fas fa-laptop-code tool-icon"></i>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">
+              Express.js
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Skills
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Programming Languages -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Languages
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Python, Java, HTML, CSS, JavaScript
+            </p>
+          </div>
+
+          <!-- Relevant Coursework -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Relevant Coursework
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Data Structures Algorithms, Operating Systems, Object Oriented
+              Programming, Database Management System, Software Engineering,
+              REST-API.
+            </p>
+          </div>
+          
+          <!-- Frameworks/Libraries -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Frameworks/Libraries
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              React.js, Node.js, Express.js, Next.js, Bootstrap
+            </p>
+          </div>
+
+          <!-- Databases -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Databases
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">MySQL, MongoDB</p>
+          </div>
+
+
+          <!-- Build Tools -->
+          <!-- <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Build Tools
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Visual Studio Code, REST-API
+            </p>
+          </div> -->
+          
+          <!-- Hobbies & Interests -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Hobbies & Interests
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Reading, Coding Challenges, Playing Chess, Yoga, Travel
+            </p>
+          </div>
+          <!-- Soft Skills -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Soft Skills
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Problem-Solving, Adaptability, Collaboration, Team-Self-Learning,
+              Time Management.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section
+        id="projects"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Projects
+        </h2>
+        <div class="space-y-10">
+          <!-- Project search removed per request -->
+          <div id="projects-list">
+
+          <!-- Project: Prescripto Doctor Booking Project -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              🩺 Prescripto – Full Stack Doctor Appointment Booking System | MERN Stack
+            </h3>
+            <ul
+              class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2"
+            >
+              <li>
+                Designed and developed a scalable MERN-based healthcare platform enabling
+                 patients to book doctor appointments with secure online payments, role-based dashboards,
+                  and real-time appointment management.
+              </li>
+              <li>
+                Engineered a three-tier authentication system (Patient, Doctor, Admin) with JWT-based security and
+                 role-based access control.
+              </li>
+              <li>Integrated Razorpay payment gateway for secure and seamless transactions.</li>
+              <li>Developed responsive, mobile-friendly dashboards using React.js and Tailwind CSS,
+                 ensuring cross-device compatibility.</li>
+              <li>Implemented RESTful APIs with Node.js, Express.js, and MongoDB for efficient data
+                 management and scalability.</li>
+              <li>Deployed backend on Render and frontend/admin dashboards on Render, 
+                achieving high availability and performance.</li>
+              <li>Developed features for real-time appointment management, earnings tracking for doctors,
+                 and admin-level doctor profile management.</li>
+              <!-- <li>Implemented advanced search and filtering capabilities for doctors based on specialty, location, and availability.</li>               -->
+              
+              <li>Technologies Used: MERN Stack (MongoDB, Express.js, React.js, Node.js), JWT, Razorpay, Tailwind CSS.</li>
+
+            </ul>
+            
+            <a
+              href="https://prescripto-frontend-javc.onrender.com/"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐Project Link</a
+            >
+            <!-- GitHub Repository Link -->
+             &nbsp;&nbsp;
+            <a
+              href="https://github.com/Gorle-Mohanarao/prescripto"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐GitHub Repository </a
+            >
+          </div>
+          <!-- end projects-list -->
+
+
+          <!-- Project: Ecommerce Project -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              🛍️ Forever E-Commerce (MERN Stack)
+            </h3>
+            <ul
+              class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2"
+            >
+              <li>
+               Designed and developed a full-stack e-commerce web application using
+                the MERN stack (MongoDB, Express.js, React.js, Node.js), enabling users to browse, filter, and purchase products seamlessly.
+              </li>
+              <li>
+                Integrated Stripe and Razorpay payment gateways to support secure online
+                 payments and Cash on Delivery (COD), improving checkout flexibility.
+              </li>
+              <li>Implemented RESTful APIs with Node.js and Express.js and connected 
+                to a MongoDB Atlas cloud database for scalable data storage.</li>
+              <li>Applied state management using Redux for a smooth and responsive shopping cart and order placement experience.</li>
+              <li>Ensured responsive UI/UX with optimized React components, improving mobile and desktop accessibility.</li>
+              <li>Deployed the application on Render with environment-specific configurations for frontend, backend, and database hosting</li>
+              <!-- <li>Implemented advanced search and filtering capabilities for doctors based on specialty, location, and availability.</li>               -->
+              
+              <li>Technologies Used: MERN Stack (MongoDB, Express.js, React.js, Node.js), JWT, Razorpay, Tailwind CSS.</li>
+
+            </ul>
+            
+            <a
+              href="https://forever-frontend-8lgj.onrender.com/"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐Project Link </a
+            >
+            <!-- GitHub Repository Link -->
+             &nbsp;&nbsp;
+            <a
+              href="https://github.com/Gorle-Mohanarao/forever-full-stack"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐GitHub Repository </a
+            >
+          </div>
+
+
+          <!-- Project: Weather Web Application -->
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              🌤️ Weather Web Application
+            </h3>
+            <ul
+              class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2"
+            >
+              <li>
+                A professional and responsive weather web application that
+                provides real-time weather data for any city worldwide.
+              </li>
+              <li>
+                Leverages the OpenWeatherMap API to dynamically fetch and
+                display essential weather metrics.
+              </li>
+              <li>Key Features:</li>
+              <ul class="list-circle list-inside ml-5">
+                <li>Instantaneous weather updates by city search.</li>
+                <li>
+                  Fully responsive layout ensuring seamless experience across
+                  all devices (desktop, tablet, mobile).
+                </li>
+                <li>
+                  Comprehensive display of temperature, weather conditions,
+                  humidity, and wind speed.
+                </li>
+                <li>
+                  Intuitive and aesthetically pleasing user interface for
+                  enhanced usability.
+                </li>
+              </ul>
+              <li>Technologies Used:</li>
+              <ul class="list-circle list-inside ml-5">
+                <li>HTML5 for robust structure.</li>
+                <li>CSS3 for modern styling and responsive design.</li>
+                <li>
+                  JavaScript for interactive functionality and API integration.
+                </li>
+                <li>OpenWeatherMap API for reliable weather data retrieval.</li>
+              </ul>
+            </ul>
+            <a
+              href="https://gorle-mohanarao.github.io/WeatherCheck-Web-Application/"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐 Project Link</a
+            >
+          </div>
+
+          <!-- Project: Buy-Chairs-E-Commerce-Website -->
+          <!-- <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+            >
+              Buy-Chairs-E-Commerce-Website
+            </h3>
+            <ul
+              class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2"
+            >
+              <li>
+                Welcome to ChairShop, a modern and responsive e-commerce website
+                focused on the shopping experience for high-quality chairs.
+              </li>
+              <li>
+                This project is built using HTML, CSS, and JavaScript,
+                showcasing front-end development skills with a sleek design and
+                smooth user interactions.
+              </li>
+              <li>User-friendly product listing page.</li>
+              <li>Search functionality for products.</li>
+              <li>Product detail modals/popups.</li>
+              <li>Fully responsive design for mobile and desktop.</li>
+              <li>Interactive UI with JavaScript.</li>
+              <li>Stylish and clean UI using CSS.</li>
+              <li>Technologies Used: HTML5, CSS3, JavaScript.</li>
+            </ul>
+            <a
+              href="https://gorle-mohanarao.github.io/Buy-Chairs-E-Commerce-Website/"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >🌐 Live Demo</a
+            >
+          </div> -->
+
+    
+        </div>
+      </section>
+
+      <!-- Internship Section -->
+      <section
+        id="internship"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Internship
+        </h2>
+        <div
+          class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+        >
+          <h3
+            class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3"
+          >
+            Full Stack Development Intern 
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            Revature Company | Oct 2024 - Jan 2025 | Online
+          </p>
+          <ul
+            class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mt-4"
+          >
+            <li>
+              Completed an intensive Full Stack Development Internship, specializing in the MERN stack (MongoDB, Express.js, React.js, Node.js) to deliver scalable, 
+              high-performance web applications with a strong focus on user experience and performance optimization.
+            </li>
+            <li>
+              Designed, developed, and deployed 2+ full-stack applications, accelerating feature delivery by 30% through modular architecture and clean code practices
+            </li>
+            <li>
+              Improved API efficiency by 25% via optimized database queries and RESTful API design, ensuring seamless frontend–backend integration.
+            </li>
+            <li>
+              Built responsive, cross-browser compatible UIs, boosting user satisfaction scores during testing by 40%.
+            </li>
+
+            <li>
+              Reduced deployment time from hours to minutes by implementing Git/GitHub workflows and CI/CD pipelines.
+            </li>
+
+            <li>
+              Skills: MERN Stack · RESTful APIs · Responsive Web Design · Agile Development · Git/GitHub · CI/CD
+            </li>
+          </ul>
+          <!-- <button
+            class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+          >
+            View More
+          </button> -->
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section
+        id="education"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Education
+        </h2>
+        <div class="space-y-8">
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              Bachelor of Technology in Computer Science and Engineering
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Lendi institute of Engineering and Technology
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">2020-24 | CGPA: 7.52</p>
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              Board of Intermediate Education || 12th Education
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Sri Chaitanya Junior College
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">2018-20 | CGPA: 9.75</p>
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              Board of Secondary Education || 10th Education
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">Sri Narayana School</p>
+            <p class="text-gray-700 dark:text-gray-300">2018 | GPA: 9.7</p>
+          </div>
+        </div>
+      </section>
+   
+
+      <!-- Certifications Section -->
+      <section
+        id="certifications"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Certifications
+        </h2>
+        <div class="space-y-8">
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Full Stack Web Development Bootcamp.
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">by <b>UDEMY</b></p>
+            <!-- certifications photo link-->
+             <a
+              href="https://drive.google.com/file/d/1iNjg1j8KRBm-e2QHuUjCxYzJJzfHlntj/view?usp=sharing"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >Certificate Link </a
+            >
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Java Programming.
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">by <b>Great Learning</b></p>
+            <!-- certifications photo link-->
+             <a
+              href="https://drive.google.com/file/d/19t0ZsgaRlbHyK7uLqG1-lD0mdXkW24iE/view?usp=sharing"
+              target="_blank"
+              class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md text-sm"
+              >Certificate Link </a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section
+        id="achievements"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Achievements
+        </h2>
+        <div class="space-y-8">
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              ISRO - Talent test
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Achieved The <b>Gold Medal</b> from the Indian Space Research
+              Organization talent test.
+            </p>
+          </div>
+          <div
+            class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2"
+            >
+              Jana Vignana Vedika
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Achieved <b>State (A.P) Second rank</b> in Jana Vignana Vedika Exam.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Declaration Section (Optional, can be integrated into contact or about) -->
+      <section
+        id="declaration"
+        class="py-16 border-b border-gray-200 dark:border-gray-700 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Let’s Connect
+        </h2>
+        <div
+          class="card-bg p-6 rounded-lg shadow-md border border-gray-200 dark:border-purple-700"
+        >
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Thank you for exploring my portfolio.
+             I’m always open to collaborating on <b>innovative projects</b> and <b>exploring new opportunities</b>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-16 animate-on-scroll">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center"
+        >
+          Get in Touch
+        </h2>
+        <div
+          class="card-bg p-8 rounded-lg shadow-md border border-gray-200 dark:border-purple-700 max-w-lg mx-auto"
+        >
+          <p class="text-gray-800 dark:text-gray-100 text-center mb-6">
+            Have a project in mind or just want to say hello? Feel free to reach
+            out!
+          </p>
+          <div class="flex flex-col items-center space-y-4">
+            <p class="text-lg text-gray-900 dark:text-gray-100">
+              <i
+                class="fas fa-envelope mr-2 text-blue-600 dark:text-blue-400"
+              ></i
+              ><a
+                href="mailto:gorlemohanarao2002@gmail.com"
+                class="hover:underline text-gray-900 dark:text-gray-100"
+                >gorlemohanarao2002@gmail.com</a>
+
+            </p>
+            <p class="text-lg text-gray-900 dark:text-gray-100">
+              <i class="fas fa-phone mr-2 text-blue-600 dark:text-blue-400"></i>
+              +91-9133505178
+            </p>
+            <a
+              href="https://www.linkedin.com/in/gmr7/"
+              target="_blank"
+              class="text-blue-700 dark:text-blue-400 hover:underline"
+              ><i class="fab fa-linkedin mr-2"></i>LinkedIn Profile</a
+            >
+          </div>
+          <!-- Updated form for potential functionality with Formspree or similar -->
+          <form
+            class="mt-8 space-y-4"
+            action="https://formspree.io/f/mnnvggpw"
+            method="POST"
+          >
+            <div>
+              <label
+                for="name"
+                class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:text-white"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="_replyto"
+                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:text-white"
+                placeholder="your.email@example.com"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="message"
+                class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:text-white"
+                placeholder="Your message..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-8 text-center">
+      <div class="container mx-auto px-6">
+        <p>&copy; 2025 Mohan. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+          <a
+            href="https://www.linkedin.com/in/gmr7/"
+            target="_blank"
+            class="hover:text-blue-400 transition-colors duration-300"
+            ><i class="fab fa-linkedin text-2xl"></i
+          ></a>
+          <a
+            href="https://github.com/Gorle-Mohanarao"
+            target="_blank"
+            class="hover:text-blue-400 transition-colors duration-300"
+            ><i class="fab fa-github text-2xl"></i
+          ></a>
+          <a
+            href="mailto:gorlemohanarao2002@gmail.com"
+            class="hover:text-blue-400 transition-colors duration-300"
+            ><i class="fas fa-envelope text-2xl"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 focus:outline-none hidden"
+    >
+      <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+  <!-- External script with the page's JS behavior -->
+  <script src="script.js" defer></script>
+  </body>
+</html>
