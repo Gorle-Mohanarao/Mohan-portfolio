@@ -363,3 +363,122 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Small helper for subtle section separators */
 .section-divider { height: 1px; background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0)); margin: 2.25rem 0; }
+
+/* ==========================
+   Custom Animated Cursor
+   ========================== */
+@media (pointer: fine) and (min-width: 640px) {
+  /* Only show custom cursor on non-touch, sufficiently large pointers */
+  body.custom-cursor-enabled { cursor: none; }
+
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    will-change: transform, opacity;
+    transition: opacity 180ms linear, transform 220ms cubic-bezier(.2,.9,.2,1);
+    mix-blend-mode: normal;
+  }
+
+  /* The small, crisp dot */
+  .custom-cursor-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,122,239,1), rgba(122,239,255,1));
+    box-shadow: 0 6px 20px rgba(124,58,237,0.18), 0 2px 8px rgba(0,0,0,0.08);
+    transform-origin: center center;
+    opacity: 0.98;
+  }
+
+  /* The larger ring that trails behind and responds to interaction */
+  .custom-cursor-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(124,58,237,0.18);
+    background: radial-gradient(circle at 35% 25%, rgba(124,58,237,0.06), transparent 30%);
+    box-shadow: 0 8px 26px rgba(124,58,237,0.06);
+    opacity: 0.95;
+    transform-origin: center center;
+  }
+
+  /* Hover / active states */
+  .custom-cursor-ring.cursor--hover {
+    transform: translate(-50%, -50%) scale(1.6);
+    border-color: rgba(58,123,255,0.85);
+    opacity: 0.98;
+    transition: transform 180ms cubic-bezier(.2,.9,.2,1), border-color 180ms linear;
+  }
+
+  .custom-cursor-dot.cursor--hover {
+    transform: translate(-50%, -50%) scale(1.6);
+    box-shadow: 0 18px 40px rgba(58,123,255,0.14);
+  }
+
+  /* Pressed state */
+  .custom-cursor-dot.cursor--down {
+    transform: translate(-50%, -50%) scale(0.75);
+    opacity: 0.98;
+  }
+
+  .custom-cursor-ring.cursor--down {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.85;
+  }
+
+  /* Hide the custom cursor when interacting with text fields to preserve caret */
+  body.hide-custom-cursor .custom-cursor-dot,
+  body.hide-custom-cursor .custom-cursor-ring {
+    opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+
+/* Respect reduced motion: minimal visuals and keep native cursor */
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
+  body { cursor: auto !important; }
+}
+
+/* Trailing stars for the custom cursor */
+@media (pointer: fine) and (min-width: 640px) {
+  .cursor-star {
+    position: fixed;
+    left: 0; top: 0;
+    width: var(--size, 8px);
+    height: var(--size, 8px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.6) 20%, transparent 60%), linear-gradient(135deg, #ff7af0 0%, #7af0ff 100%);
+    box-shadow: 0 6px 18px rgba(124,58,237,0.12), 0 2px 6px rgba(0,0,0,0.08);
+    transform: translate(-50%, -50%) scale(0.3);
+    pointer-events: none;
+    z-index: 99998;
+    will-change: transform, opacity;
+    animation: star-pop 760ms cubic-bezier(.2,.9,.2,1) forwards;
+  }
+
+  @keyframes star-pop {
+    0% {
+      transform: translate(0,0) scale(0.22) rotate(var(--rot, 0deg));
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.95;
+    }
+    100% {
+      transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(1.05) rotate(calc(var(--rot, 0deg) + 40deg));
+      opacity: 0;
+    }
+  }
+
+  /* Slight variation for bigger stars */
+  .cursor-star.star--big { width: calc(var(--size, 8px) * 1.6); height: calc(var(--size, 8px) * 1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-star { display: none !important; }
+}

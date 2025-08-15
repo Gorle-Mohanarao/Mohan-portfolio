@@ -140,3 +140,164 @@ animateOnScrollElements.forEach((el) => observer.observe(el));
     });
   });
 })();
+
+/* ==========================
+   Custom Animated Cursor JS
+   ========================== */
+(function(){
+  // Quick guard: don't init on touch devices or when reduced-motion is preferred
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (prefersReducedMotion || isTouch) return; // preserve native behavior
+
+  // Only init for fine pointers (desktop) to avoid interfering with small screens
+  if (window.matchMedia && !window.matchMedia('(pointer: fine)').matches) return;
+
+  // Create cursor elements
+  const dot = document.createElement('div');
+  dot.className = 'custom-cursor-dot';
+  const ring = document.createElement('div');
+  ring.className = 'custom-cursor-ring';
+  document.body.appendChild(ring);
+  document.body.appendChild(dot);
+
+  // expose small helper state
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let ringX = mouseX, ringY = mouseY;
+  let isHovering = false;
+  let isDown = false;
+
+  // enable custom cursor class on body
+  document.body.classList.add('custom-cursor-enabled');
+
+  // Smoothly interpolate ring toward mouse for trailing effect
+  function lerp(a,b,n){ return (1-n)*a + n*b; }
+
+  // Track pointer
+  window.addEventListener('pointermove', (e)=>{
+    mouseX = e.clientX; mouseY = e.clientY;
+    // position small dot immediately for crispness
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  }, { passive: true });
+
+  // Press/release
+  window.addEventListener('pointerdown', ()=>{
+    isDown = true; dot.classList.add('cursor--down'); ring.classList.add('cursor--down');
+  }, { passive: true });
+  window.addEventListener('pointerup', ()=>{
+    isDown = false; dot.classList.remove('cursor--down'); ring.classList.remove('cursor--down');
+  }, { passive: true });
+
+  // Hide cursor over inputs/textareas to keep native caret
+  function hideCursorForFocus(el){
+    if(!el) return;
+    el.addEventListener('focus', ()=> document.body.classList.add('hide-custom-cursor'));
+    el.addEventListener('blur', ()=> document.body.classList.remove('hide-custom-cursor'));
+  }
+  document.querySelectorAll('input, textarea, select, [contenteditable="true"]').forEach(hideCursorForFocus);
+
+  // Add hover interactions for interactive elements
+  const hoverSelectors = 'a, button, .ripple, input[type="submit"], .gradient-button, [role="button"]';
+  function setHoverState(el, entering){
+    if(entering){
+      dot.classList.add('cursor--hover'); ring.classList.add('cursor--hover');
+      isHovering = true;
+    } else {
+      dot.classList.remove('cursor--hover'); ring.classList.remove('cursor--hover');
+      isHovering = false;
+    }
+  }
+  document.querySelectorAll(hoverSelectors).forEach(el=>{
+    el.addEventListener('pointerenter', ()=> setHoverState(el, true));
+    el.addEventListener('pointerleave', ()=> setHoverState(el, false));
+  });
+
+  // Animation loop to ease the ring
+  function animate(){
+    ringX = lerp(ringX, mouseX, 0.16);
+    ringY = lerp(ringY, mouseY, 0.16);
+    // Slight extra offset when hovering for subtle parallax
+    const hoverOffset = isHovering ? 0.2 : 0.08;
+    const tx = ringX + (mouseX - ringX) * hoverOffset;
+    const ty = ringY + (mouseY - ringY) * hoverOffset;
+    ring.style.transform = `translate(${tx}px, ${ty}px) translate(-50%, -50%)`;
+
+    // Slow fade when idle
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  // Remove cursor if window/tab loses focus for a clean state
+  window.addEventListener('blur', ()=>{
+    dot.style.opacity = '0'; ring.style.opacity = '0';
+  });
+  window.addEventListener('focus', ()=>{
+    dot.style.opacity = ''; ring.style.opacity = '';
+  });
+
+  // Cleanup helper for SPA navigation (if any) - not strictly needed here but safe
+  window.__customCursorCleanup = ()=>{
+    try{ dot.remove(); ring.remove(); document.body.classList.remove('custom-cursor-enabled','hide-custom-cursor'); }catch(e){}
+  };
+})();
+
+/* ==========================
+   Trailing Stars Effect
+   ========================== */
+(function(){
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isTouch || prefersReducedMotion) return;
+
+  const MAX_STARS = 24; // cap to avoid DOM flood
+  const SPAWN_THROTTLE = 40; // ms between spawns
+  let lastSpawn = 0;
+  const stars = new Set();
+
+  function makeStar(x, y){
+    const el = document.createElement('div');
+    el.className = 'cursor-star';
+    // randomize size, direction, rotation and travel distance
+    const size = (Math.random() * 6) + 6; // 6-12px
+    el.style.setProperty('--size', `${size}px`);
+    const angle = Math.random() * 360;
+    const distance = 18 + Math.random() * 32; // 18-50px
+    const dx = Math.cos(angle * Math.PI/180) * distance;
+    const dy = Math.sin(angle * Math.PI/180) * distance - (Math.random()*6); // slight upward bias
+    el.style.setProperty('--dx', `${dx.toFixed(2)}px`);
+    el.style.setProperty('--dy', `${dy.toFixed(2)}px`);
+    el.style.setProperty('--rot', `${Math.round(Math.random()*360)}deg`);
+    // occasionally make a bigger star
+    if (Math.random() > 0.85) el.classList.add('star--big');
+
+    // position
+    el.style.left = x + 'px'; el.style.top = y + 'px';
+    document.body.appendChild(el);
+    stars.add(el);
+
+    // cleanup after animation
+    const cleanup = () => { if(el && el.parentNode){ el.parentNode.removeChild(el); stars.delete(el); } };
+    // Use animationend fallback; also set timeout to be robust
+    el.addEventListener('animationend', cleanup, { once:true });
+    setTimeout(cleanup, 900);
+  }
+
+  function onPointerMove(e){
+    const now = performance.now();
+    if (now - lastSpawn < SPAWN_THROTTLE) return;
+    lastSpawn = now;
+
+    // Cap total
+    if (stars.size >= MAX_STARS) return;
+
+    makeStar(e.clientX, e.clientY);
+  }
+
+  window.addEventListener('pointermove', onPointerMove, { passive:true });
+
+  // cleanup on unload
+  window.addEventListener('beforeunload', ()=>{
+    stars.forEach(s=> s.remove());
+    stars.clear();
+  });
+})();
